@@ -15,12 +15,21 @@ This project demonstrates how to implement an **asynchronous order processing sy
 ## 🏗️ Project Structure
 ```
 order-processing-rabbitMQ/
-│── publisher/
-│   ├── main.go  # API server (publisher)
-│── worker/
-│   ├── main.go  # Worker (consumer)
-│── README.md
-│── test_requests.http  # HTTP requests for testing
+│── publisher/                           # API Server (Publisher)
+│   ├── cmd/main.go                     # Entry point for the publisher
+│   ├── internal/server.go              # HTTP server setup
+│   ├── internal/handler.go             # Handles HTTP requests
+│   ├── models/order.go                 # Data models
+│   ├── queue/rabbitmq.go               # RabbitMQ publisher logic
+│   ├── queue/connection.go             # RabbitMQ publisher connection
+│── worker/                              # Worker (Consumer)
+│   ├── cmd/main.go                      # Entry point for the worker
+│   ├── internal/queue/consumer.go       # Message consumer logic
+│   ├── internal/queue/connection.go     # RabbitMQ connection manager
+│── README.md                            # Project documentation
+│── httpclient.http                      # HTTP request samples for testing
+│── go.mod                               # Go module dependencies
+│── go.sum                               # Go module checksum
 ```
 
 ## 🛠️ Setup & Installation
