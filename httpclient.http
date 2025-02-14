@@ -1,0 +1,26 @@
+### Enviar um pedido para a API
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "id": "12345"
+}
+
+### Enviar outro pedido diferente
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "id": "67890"
+}
+
+### Tentar enviar um pedido inválido
+POST http://localhost:8080/order
+Content-Type: application/json
+
+{
+  "invalid_field": "abcde"
+}
+
+### Testar método não permitido
+GET http://localhost:8080/order
